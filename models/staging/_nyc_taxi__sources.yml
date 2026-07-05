@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: 'nyc_taxi'
+    meta:
+      external_location: "data/raw/yellow_tripdata_*.parquet"   # local path; HTTP/S3 URLs also work
+    tables:
+      - name: trips  
+        columns:
+          - name: RatecodeID 
+            description: "A textual description of the rate code for the trip"
+            tests:  
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 99]
+          - name: payment_type
+            description: "A textual description of the payment type for the trip"
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [0, 1, 2, 3, 4, 5, 6]

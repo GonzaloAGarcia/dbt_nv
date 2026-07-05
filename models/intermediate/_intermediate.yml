@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: int_trips_joined_to_vendors
+    config:
+      event_time: pickup_datetime

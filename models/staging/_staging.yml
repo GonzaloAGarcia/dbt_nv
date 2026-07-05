@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_trips
+    config:
+      event_time: pickup_datetime
+    columns:
+    - name: vendor_id
+      description: "The ID of the vendor providing the trip"
+      tests:
+        - accepted_values:
+            arguments:
+              values: [1, 2, 6, 7]
+    - name: pickup_location_id
+      description: "The ID of the pickup location"
+      tests:
+        - not_null
+    - name: dropoff_location_id
+      description: "The ID of the dropoff location"
+      tests:
+        - not_null
+    - name: pickup_datetime
+      description: "The datetime when the trip started"
+    - name: dropoff_datetime
+      description: "The datetime when the trip ended"
+    - name: trip_distance
+      description: "The distance of the trip in miles"
+      tests:
+        - non_negative
+    - name: passenger_count
+      description: "The number of passengers in the trip"
+    - name: fare_amount
+      description: "The fare amount for the trip"
+      tests:
+        - non_negative:
+            config:
+              severity: warn
+    - name: pickup_month
+      description: "The month when the trip started, truncated to the first day of the month"

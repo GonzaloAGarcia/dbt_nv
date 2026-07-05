@@ -1,0 +1,10 @@
+version: 2
+
+seeds:
+  - name: vendor
+    description: "A list of vendors providing trips"
+    columns:
+      - name: vendor_id
+        tests:
+          - not_null
+          - unique

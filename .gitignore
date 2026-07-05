@@ -1,0 +1,8 @@
+
+target/
+dbt_packages/
+logs/
+data/raw/
+.venv/
+*.duckdb
+LEARNING_PLAN.md

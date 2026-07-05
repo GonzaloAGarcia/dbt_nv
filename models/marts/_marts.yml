@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: fct_trips
+    columns:
+    - name: dropoff_location_id
+      description: "The ID of the dropoff location"
+      tests:
+        - relationships:
+            arguments:
+              to: ref('dim_zones')
+              field: location_id
+    - name: pickup_location_id
+      description: "The ID of the pickup location"
+      tests:
+        - relationships:
+            arguments:
+              to: ref('dim_zones')
+              field: location_id
+    - name: trip_duration_min
+      description: "The duration of the trip in minutes"
+      tests:
+        - non_negative
+  - name: dim_zones
+    columns:
+    - name: location_id
+      description: "The ID of the location"
+      tests:
+        - not_null
+        - unique

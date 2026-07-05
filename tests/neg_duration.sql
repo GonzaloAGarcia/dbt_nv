@@ -1,0 +1,1 @@
+select * from {{ ref('fct_trips') }} where trip_duration_min < 0
