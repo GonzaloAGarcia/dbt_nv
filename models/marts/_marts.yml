@@ -28,3 +28,10 @@ models:
       tests:
         - not_null
         - unique
+  - name: agg_per_zone
+    columns:
+    - name: location_id
+      description: "The ID of the location"
+      tests:
+        - not_null
+        - unique
